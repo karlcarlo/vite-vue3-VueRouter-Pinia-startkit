@@ -217,6 +217,70 @@ const routes = [{
 
 
 
+#### 使用空模版布局
+
+在`layout`目录下新建`Blank.vue`布局文件，不含`Header`和`Footer`
+
+```vue
+<template>
+    <RouterView />
+</template>
+```
+
+更新`router/index.js`文件，增加`login`页面路由
+
+```js
+const routes = [{
+    path: '/',
+    component: () => import('../layout/index.vue'),
+    redirect: '/home',
+    children: [
+        {
+            name: '首页',
+            path: 'home',
+            component: () => import('../views/Home.vue')
+        }, {
+            name: '关于',
+            path: 'about',
+            component: () => import('../views/About.vue')
+        }
+    ]
+}, {
+    path: '/login',
+    component: () => import('../layout/blank.vue'),
+    children: [
+        {
+            path: '',
+            component: () => import('../views/Login.vue')
+        }
+    ]
+}]
+```
+
+在`views`目录下创建`Login.vue`文件
+
+```vue
+<template>
+    <div>
+        Login
+    </div>
+</template>
+```
+
+在`layout/commonents/Header.vue`组件中增加登录页面链接
+
+```vue
+<template>
+    <header>
+        <router-link to="/home">首页</router-link> ｜
+        <router-link to="/about">关于</router-link> ｜
+        <router-link to="/login">登录</router-link> ｜
+    </header>
+</template>
+```
+
+
+
 #### 安装配置pinia
 
 在项目根目录执行安装命令
