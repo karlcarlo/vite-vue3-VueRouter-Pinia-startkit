@@ -177,7 +177,7 @@ http://localhost:3000/
 </template>
 ```
 
-在`src/layout`目录，创建`Layout.vue`文件
+在`src/layout`目录，创建`index.vue`文件
 
 ```vue
 <script setup>
@@ -316,5 +316,4 @@ function clickHandler() {
     </div>
 </template>
 ```
-
 
