@@ -345,11 +345,11 @@ export default useStore
 
 在About组件修改state数据，在Home组件显示state数据
 
-修改Home组件
+修改Home组件，显示count计数
 
 ```vue
 <script setup>
-import { useStore } from "../store/comm"
+import useStore from "../store/comm"
 
 const commStore = useStore()
 </script>
@@ -361,11 +361,11 @@ const commStore = useStore()
 </template>
 ```
 
-修改About组件
+修改About组件，增加更新count动作
 
 ```vue
 <script setup>
-import { useStore } from '../store/comm'
+import useStore from '../store/comm'
 
 const commStore = useStore()
 
@@ -381,3 +381,4 @@ function clickHandler() {
 </template>
 ```
 
+我们在关于About页面增加count值，在首页Home页面可以看到更新后的count值
